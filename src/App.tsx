@@ -1,8 +1,7 @@
-function App() {
+import { Routes } from "./Routes";
 
-  return (
-    <h1>Hello World</h1>
-  )
+export default function App() {
+
+  return (<Routes />)
 }
 
-export default App
