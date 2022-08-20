@@ -9,6 +9,8 @@ module.exports = {
       backgroundImage: {
         'icon-close': "url('/src/assets/icons/close.svg')",
         'icon-menu': "url('/src/assets/icons/menu.svg')",
+        'icon-plus': "url('/src/assets/icons/plus.svg')",
+        'icon-minus': "url('/src/assets/icons/minus.svg')",
       }
     },
   },
