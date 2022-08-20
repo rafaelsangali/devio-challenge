@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <main className="py-12 px-6 md:px-10">
       <span className="block my-2 font-extrabold text-2xl ">Seja bem vindo !</span>
-      <input className="bg-gray-200 my-2 py-2 px-2 rounded-md" type="text" placeholder="O que você procura?" />
+      <input className="bg-gray-200 my-2 py-2 px-2 rounded-md"
+        type="text"
+        placeholder="O que você procura?"
+      />
       <section className="my-10">
         <h2 className="font-extrabold text-lg">Categorias</h2>
         <span className="text-gray-700 text-sm">Navegue por categoria</span>
