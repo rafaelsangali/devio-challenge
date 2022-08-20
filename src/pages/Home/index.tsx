@@ -40,6 +40,5 @@ export default function Home() {
         <button className="bg-gray-400 w-52 h-10 m-4 rounded-xl text-white font-extrabold hover:scale-105 hover:shadow-lg transition-transform">Finalizar Pedido</button>
       </div>
     </main>
-
   )
 }
