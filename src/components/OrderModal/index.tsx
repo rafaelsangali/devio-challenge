@@ -1,5 +1,6 @@
 import { images } from "../../assets";
 import OrderTicket from "../../components/OrderTicket";
+import { aditionals } from "./adtionalObject";
 
 export default function OrderModal() {
   return (
@@ -17,18 +18,12 @@ export default function OrderModal() {
         <section className="my-10">
           <label className="text-md font-extrabold">Adicionais</label>
           <p className="text-xs">Selecione os ingredientes que você quer adicionar a mais no seu lanche</p>
-          <Aditional
-            text={"Bacon"}
-            img={images.imageBacon}
-          />
-          <Aditional
-            text={"Cheddar"}
-            img={images.imageCheddar}
-          />
-          <Aditional
-            text={"Barbecue"}
-            img={images.imageBarbecue}
-          />
+          {aditionals.map(aditional => (
+            <Aditional
+              text={aditional.name}
+              img={aditional.img}
+            />
+          ))}
         </section>
         {/* Section containing customer note */}
         <section>
@@ -67,8 +62,8 @@ function CardProductModal() {
       <div className="z-20">
         <img className="my-1"
           src={images.imageHamgurguer}
-          alt={`Icone hamburguer`}
           width={70}
+          alt={`Icone hamburguer`}
         />
       </div>
       <span className="bg-white absolute bottom-0 w-20 h-11 rounded-lg"></span>
