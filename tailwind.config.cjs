@@ -11,6 +11,9 @@ module.exports = {
         'icon-menu': "url('/src/assets/icons/menu.svg')",
         'icon-plus': "url('/src/assets/icons/plus.svg')",
         'icon-minus': "url('/src/assets/icons/minus.svg')",
+        'icon-wallet': "url('/src/assets/icons/wallet.svg')",
+        'icon-credit-card': "url('/src/assets/icons/credit-card.svg')",
+        'icon-money': "url('/src/assets/icons/money.svg')",
       }
     },
   },
