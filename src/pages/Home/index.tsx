@@ -19,6 +19,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center my-10">
           {categories.map(category => (
             <CardCategory
+              key={category.title}
               src={category.img}
               text={category.title}
             />
@@ -31,6 +32,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center my-10 md:grid md:grid-cols-4 md:justify-items-center md:gap-y-20">
           {products.map(product => (
             <CardProduct
+              key={product.title}
               src={product.img}
               title={product.title}
               description={product.description}

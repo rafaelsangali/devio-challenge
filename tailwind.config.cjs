@@ -14,6 +14,8 @@ module.exports = {
         'icon-wallet': "url('/src/assets/icons/wallet.svg')",
         'icon-credit-card': "url('/src/assets/icons/credit-card.svg')",
         'icon-money': "url('/src/assets/icons/money.svg')",
+        'icon-x': "url('/src/assets/icons/x.svg')",
+        'icon-check': "url('/src/assets/icons/check.svg')",
       }
     },
   },

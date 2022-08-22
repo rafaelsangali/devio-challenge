@@ -7,7 +7,7 @@ export const products = [
   {title: "Smash simples", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
   {title: "Smash furioso", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
   {title: "Smash quarteirão", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
-  {title: "Smash da casa", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
+  {title: "Smash Grandão", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
   {title: "Smash fish", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
   {title: "Smash salada", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
   {title: "Smash tudo", description:"2x hambúrguer 200g",price:"R$30,50", img: images.imageHamgurguer},
