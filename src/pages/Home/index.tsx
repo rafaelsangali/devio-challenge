@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import CardCategory from "../../components/CardCategory";
 import CardProduct from "../../components/CardProduct";
+import OrderModal from "../../components/OrderModal";
 import { categories } from "./categoryObjetc";
 import { products } from "./productsObject";
 
 export default function Home() {
+  const [search, setSearch] = useState<string>('')
+
+  const productsFiltered = products
+    .filter((product) => product.title.toLowerCase()
+      .includes(search.toLowerCase()))
 
   return (
     <main className="py-12 px-6 md:px-10">
@@ -12,6 +19,8 @@ export default function Home() {
       <input className="bg-gray-200 my-2 py-2 px-2 rounded-md"
         type="text"
         placeholder="O que você procura?"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <section className="my-10">
         <h2 className="font-extrabold text-lg">Categorias</h2>
@@ -30,7 +39,7 @@ export default function Home() {
         <h2 className="font-extrabold text-lg">Produtos</h2>
         <span className="text-gray-700 text-sm">Selecione um produto para adicionar ao seu pedido</span>
         <div className="flex flex-wrap justify-center my-10 md:grid md:grid-cols-4 md:justify-items-center md:gap-y-20">
-          {products.map(product => (
+          {productsFiltered.map(product => (
             <CardProduct
               key={product.title}
               src={product.img}
@@ -49,6 +58,7 @@ export default function Home() {
           Finalizar Pedido
         </Link>
       </div>
+      <OrderModal />
     </main>
   )
 }
