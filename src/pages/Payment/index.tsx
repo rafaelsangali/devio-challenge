@@ -44,8 +44,9 @@ export default function Payment() {
       <section className="py-6 px-6 md:px-10 flex flex-col gap-6">
         <span className="block font-extrabold my-2">Seleciona a forma de pagamento</span>
         <div className="flex flex-col gap-4">
-          {paymentForm.map((form) => (
+          {paymentForm.map((form, index) => (
             <label className={`max-w-[400px] py-4 px-5 flex justify-around border border-solid border-gray-300 rounded-md hover:border-primary transition-colors cursor-pointer ${form.img} bg-no-repeat bg-[length:30px_30px] bg-[center_left_1rem] `}
+              key={form.title + index}
               htmlFor={form.title}
             >
               {form.title}

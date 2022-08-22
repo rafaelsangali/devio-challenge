@@ -8,6 +8,7 @@ export function OrderProvider({ children }: IOrderProvider) {
   const [product, setProduct] = useState({} as IProduct)
   const [price, setPrice] = useState(0)
   const [counter, setCounter] = useState(1)
+  const [observation, setObservation] = useState('')
 
   return (
     <OrderContext.Provider value={{
@@ -18,7 +19,9 @@ export function OrderProvider({ children }: IOrderProvider) {
       price,
       setPrice,
       counter,
-      setCounter
+      setCounter,
+      observation,
+      setObservation
     }}>
       {children}
     </OrderContext.Provider>

@@ -7,7 +7,7 @@ import DescriptionAndCounter from "../DescriptionAndCounter";
 import { aditionals } from "./adtionalObject";
 
 export default function OrderModal() {
-  const { modalOpen, setModalOpen, price, counter, setCounter } = useContext(OrderContext)
+  const { modalOpen, setModalOpen, price, counter, setCounter, observation, setObservation } = useContext(OrderContext)
   const handleClick = () => {
     setModalOpen(!modalOpen)
     setCounter(1)
@@ -30,8 +30,9 @@ export default function OrderModal() {
         <section className="my-10">
           <label className="text-md font-extrabold">Adicionais</label>
           <p className="text-xs">Selecione os ingredientes que você quer adicionar a mais no seu lanche</p>
-          {aditionals.map(aditional => (
+          {aditionals.map((aditional, index) => (
             <AditionalsModal
+              key={aditional.name + index}
               text={aditional.name}
               img={aditional.img}
             />
@@ -50,6 +51,8 @@ export default function OrderModal() {
             cols={30}
             rows={5}
             placeholder="Adicione uma observação ao seu pedido"
+            value={observation}
+            onChange={(e) => setObservation(e.target.value)}
           />
         </section>
         <OrderTicket />

@@ -8,8 +8,11 @@ export interface IOrderContext {
   price: number
   setPrice: Dispatch<SetStateAction<number>>
   counter: number,
-  setCounter: Dispatch<SetStateAction<number>>
+  setCounter: Dispatch<SetStateAction<number>>,
+  observation:string,
+  setObservation: Dispatch<SetStateAction<string>>,
 }
+
 export interface IProduct {
   title: string
   description:string
