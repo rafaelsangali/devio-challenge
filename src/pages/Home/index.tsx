@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import CardCategory from "../../components/CardCategory";
 import CardProduct from "../../components/CardProduct";
+import OrderModal from "../../components/OrderModal";
 import { categories } from "./categoryObjetc";
 import { products } from "./productsObject";
 
 export default function Home() {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState<string>('')
 
   const productsFiltered = products
     .filter((product) => product.title.toLowerCase()
@@ -57,6 +58,7 @@ export default function Home() {
           Finalizar Pedido
         </Link>
       </div>
+      <OrderModal />
     </main>
   )
 }

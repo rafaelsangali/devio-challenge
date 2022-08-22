@@ -1,13 +1,18 @@
+import { useContext } from "react";
 import { images } from "../../assets";
 import OrderTicket from "../../components/OrderTicket";
+import { OrderContext } from "../../contexts/OrderContext";
 import { aditionals } from "./adtionalObject";
 
 export default function OrderModal() {
+  const { modalOpen, setModalOpen } = useContext(OrderContext)
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-[2px] flex py-10 justify-center overflow-y-auto">
-      <form className="bg-white p-5 rounded w-3/4 h-min relative">
+    <div className={` ${modalOpen ? "fixed" : "hidden"} inset-0 bg-black bg-opacity-25 backdrop-blur-[2px] flex py-10 justify-center overflow-y-auto z-50`}>
+      <div className="bg-white p-5 rounded w-3/4 h-min relative">
         <span className="text-xl font-extrabold">Revise seu Pedido!</span>
-        <button className="w-5 h-5 bg-contain absolute top-5 right-4 bg-icon-close" />
+        <button className="w-5 h-5 bg-contain absolute top-5 right-4 bg-icon-close"
+          onClick={() => setModalOpen(!modalOpen)}
+        />
         {/* section containing card and counter */}
         <section className="flex flex-wrap items-center justify-center md:justify-evenly">
           <CardProductModal />
@@ -51,7 +56,7 @@ export default function OrderModal() {
             value="Adicionar ao pedido"
           />
         </div>
-      </form>
+      </div>
     </div >
   )
 }
