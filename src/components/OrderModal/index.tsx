@@ -7,7 +7,7 @@ import DescriptionAndCounter from "../DescriptionAndCounter";
 import { aditionals } from "./adtionalObject";
 
 export default function OrderModal() {
-  const { modalOpen, setModalOpen } = useContext(OrderContext)
+  const { modalOpen, setModalOpen, product } = useContext(OrderContext)
   return (
     <div className={` ${modalOpen ? "fixed" : "hidden"} inset-0 bg-black bg-opacity-25 backdrop-blur-[2px] flex py-10 justify-center overflow-y-auto z-50`}>
       <div className="bg-white p-5 rounded w-3/4 h-min relative">
@@ -19,7 +19,7 @@ export default function OrderModal() {
         <section className="flex flex-wrap items-center justify-center md:justify-evenly">
           <CardProductModal />
           <DescriptionAndCounter />
-          <span className="font-extrabold m-4">R$30,50</span>
+          <span className="font-extrabold m-4">{`R$ ${product.price}`}</span>
         </section>
         {/* Section containing additional products */}
         <section className="my-10">
