@@ -10,9 +10,10 @@ interface ICardProduct {
 }
 
 export default function CardProduct({ src, title, description, price }: ICardProduct) {
-  const { modalOpen, setModalOpen, setProduct } = useContext(OrderContext)
+  const { modalOpen, setModalOpen, setProduct, setPrice, counter } = useContext(OrderContext)
   function handleClick(infoProduct: IProduct) {
     setModalOpen(!modalOpen)
+    setPrice(infoProduct.price)
     setProduct(infoProduct)
   }
 

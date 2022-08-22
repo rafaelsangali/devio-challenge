@@ -7,19 +7,24 @@ import DescriptionAndCounter from "../DescriptionAndCounter";
 import { aditionals } from "./adtionalObject";
 
 export default function OrderModal() {
-  const { modalOpen, setModalOpen, product } = useContext(OrderContext)
+  const { modalOpen, setModalOpen, price, counter, setCounter } = useContext(OrderContext)
+  const handleClick = () => {
+    setModalOpen(!modalOpen)
+    setCounter(1)
+  }
+
   return (
     <div className={` ${modalOpen ? "fixed" : "hidden"} inset-0 bg-black bg-opacity-25 backdrop-blur-[2px] flex py-10 justify-center overflow-y-auto z-50`}>
       <div className="bg-white p-5 rounded w-3/4 h-min relative">
         <span className="text-xl font-extrabold">Revise seu Pedido!</span>
         <button className="w-5 h-5 bg-contain absolute top-5 right-4 bg-icon-close"
-          onClick={() => setModalOpen(!modalOpen)}
+          onClick={handleClick}
         />
         {/* section containing card and counter */}
         <section className="flex flex-wrap items-center justify-center md:justify-evenly">
           <CardProductModal />
           <DescriptionAndCounter />
-          <span className="font-extrabold m-4">{`R$ ${product.price}`}</span>
+          <span className="font-extrabold m-4 w-20">{`R$ ${price * counter}`}</span>
         </section>
         {/* Section containing additional products */}
         <section className="my-10">
@@ -52,7 +57,7 @@ export default function OrderModal() {
           <input className="w-48 h-7 my-2 border border-solid border-primary text-primary rounded-lg cursor-pointer hover:scale-105 transition-transform"
             type="button"
             value="Continuar Adicionando"
-            onClick={() => setModalOpen(!modalOpen)}
+            onClick={handleClick}
           />
           <input className="w-48 h-7 my-2 bg-primary text-white rounded-lg cursor-pointer hover:scale-105 transition-transform"
             type="Submit"

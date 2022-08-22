@@ -5,7 +5,10 @@ export interface IOrderContext {
   setModalOpen: Dispatch<SetStateAction<boolean>>
   product: any
   setProduct: any
-
+  price: number
+  setPrice: Dispatch<SetStateAction<number>>
+  counter: number,
+  setCounter: Dispatch<SetStateAction<number>>
 }
 export interface IProduct {
   title: string
