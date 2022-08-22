@@ -24,7 +24,7 @@ export default function OrderModal() {
         <section className="flex flex-wrap items-center justify-center md:justify-evenly">
           <CardProductModal />
           <DescriptionAndCounter />
-          <span className="font-extrabold m-4 w-20">{`R$ ${price * counter}`}</span>
+          <span className="font-extrabold m-4 w-20">{`R$ ${(price * counter).toFixed(2)}`}</span>
         </section>
         {/* Section containing additional products */}
         <section className="my-10">

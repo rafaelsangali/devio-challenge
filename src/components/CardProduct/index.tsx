@@ -30,7 +30,7 @@ export default function CardProduct({ src, title, description, price }: ICardPro
         />
         <h3 className="my-1 font-extrabold">{title}</h3>
         <p className="text-xs">{description}</p>
-        <p className="mt-6 font-extrabold">{`R$ ${price}`}</p>
+        <p className="mt-6 font-extrabold">{`R$ ${price.toFixed(2)}`}</p>
       </div>
       <span className="bg-white absolute bottom-0 w-44 h-40 rounded-lg"></span>
     </article>
