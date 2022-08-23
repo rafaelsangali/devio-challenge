@@ -5,6 +5,7 @@ import CardProduct from "../../components/CardProduct";
 import OrderModal from "../../components/OrderModal";
 import OrderTicketModal from "../../components/OrderTicketModal";
 import { OrderContext } from "../../contexts/OrderContext";
+import { IOrder } from "../../contexts/OrderContext/types";
 import { categories } from "./categoryObjetc";
 import { products } from "./productsObject";
 
@@ -62,7 +63,7 @@ export default function Home() {
         /> : ""}
       <div className="flex flex-wrap justify-center md:justify-end my-20">
         <button className="w-52 h-10 m-4 border-2 border-solid border-gray-400 rounded-xl text-gray-400 font-extrabold hover:scale-105 hover:shadow-lg transition-transform"
-        // onClick={() => setOrder()}
+          onClick={() => setOrder({} as IOrder)}
         >
           Cancelar
         </button>

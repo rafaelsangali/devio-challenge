@@ -12,7 +12,7 @@ export interface IOrderContext {
   observation:string,
   setObservation: Dispatch<SetStateAction<string>>,
   order: IOrder,
-  setOrder: SetStateAction<{}>,
+  setOrder: Dispatch<SetStateAction<IOrder>>,
   closeAndResetModal: () => void,
   addOrder: () => void,
   productInfo: (infoProduct: IProduct) => void
@@ -22,7 +22,7 @@ export interface IOrder {
   quantity: number,
   product: string,
   observation: string,
-  price: number
+  price: number,
 }
 
 export interface IProduct {
