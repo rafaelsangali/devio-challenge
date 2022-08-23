@@ -1,15 +1,24 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import OrderTicket from "../../components/OrderTicket";
+import OrderTicketModal from "../../components/OrderTicketModal";
+import { OrderContext } from "../../contexts/OrderContext";
 import { paymentForm } from "./PaymentFormObject";
 
 export default function Payment() {
+  const { order } = useContext(OrderContext)
+
   return (
     <main className="grid h-[90vh] items-center md:grid-cols-2 ">
       <section className="py-12 px-6 gap-5 md:px-10 ">
         <h2 className="text-2xl font-extrabold my-2 pl-14 bg-icon-wallet bg-contain bg-no-repeat">Pagamento</h2>
         <div className="my-10">
           <span className="block font-extrabold my-2">Resumo da compra</span>
-          <OrderTicket />
+          <OrderTicketModal
+            product={order.product}
+            counter={order.quantity}
+            price={order.price}
+            observation={order.observation}
+          />
         </div>
         <div className="flex flex-wrap gap-5 my-4">
           <div className="flex flex-col items-start">
@@ -44,8 +53,9 @@ export default function Payment() {
       <section className="py-6 px-6 md:px-10 flex flex-col gap-6">
         <span className="block font-extrabold my-2">Seleciona a forma de pagamento</span>
         <div className="flex flex-col gap-4">
-          {paymentForm.map((form) => (
+          {paymentForm.map((form, index) => (
             <label className={`max-w-[400px] py-4 px-5 flex justify-around border border-solid border-gray-300 rounded-md hover:border-primary transition-colors cursor-pointer ${form.img} bg-no-repeat bg-[length:30px_30px] bg-[center_left_1rem] `}
+              key={form.title + index}
               htmlFor={form.title}
             >
               {form.title}
