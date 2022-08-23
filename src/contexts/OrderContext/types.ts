@@ -11,6 +11,18 @@ export interface IOrderContext {
   setCounter: Dispatch<SetStateAction<number>>,
   observation:string,
   setObservation: Dispatch<SetStateAction<string>>,
+  order: IOrder,
+  setOrder: SetStateAction<{}>,
+  closeAndResetModal: () => void,
+  addOrder: () => void,
+  productInfo: (infoProduct: IProduct) => void
+}
+
+export interface IOrder {
+  quantity: number,
+  product: string,
+  observation: string,
+  price: number
 }
 
 export interface IProduct {

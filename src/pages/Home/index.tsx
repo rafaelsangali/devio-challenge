@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CardCategory from "../../components/CardCategory";
 import CardProduct from "../../components/CardProduct";
 import OrderModal from "../../components/OrderModal";
+import OrderTicketModal from "../../components/OrderTicketModal";
+import { OrderContext } from "../../contexts/OrderContext";
 import { categories } from "./categoryObjetc";
 import { products } from "./productsObject";
 
 export default function Home() {
   const [search, setSearch] = useState<string>('')
+  const { order, setOrder } = useContext(OrderContext)
 
   const productsFiltered = products
     .filter((product) => product.title.toLowerCase()
@@ -50,8 +53,19 @@ export default function Home() {
           ))}
         </div>
       </section>
+      {order.product != undefined ?
+        <OrderTicketModal
+          counter={order.quantity}
+          product={order.product}
+          price={order.price}
+          observation={order.observation}
+        /> : ""}
       <div className="flex flex-wrap justify-center md:justify-end my-20">
-        <button className="w-52 h-10 m-4 border-2 border-solid border-gray-400 rounded-xl text-gray-400 font-extrabold hover:scale-105 hover:shadow-lg transition-transform">Cancelar</button>
+        <button className="w-52 h-10 m-4 border-2 border-solid border-gray-400 rounded-xl text-gray-400 font-extrabold hover:scale-105 hover:shadow-lg transition-transform"
+        // onClick={() => setOrder()}
+        >
+          Cancelar
+        </button>
         <Link className="w-52 h-10 m-4 flex items-center justify-center bg-gray-400 rounded-xl text-white font-extrabold hover:scale-105 hover:shadow-lg transition-transform"
           to={"/payment"}
         >

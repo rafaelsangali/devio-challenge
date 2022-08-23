@@ -1,15 +1,24 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import OrderTicket from "../../components/OrderTicket";
+import OrderTicketModal from "../../components/OrderTicketModal";
+import { OrderContext } from "../../contexts/OrderContext";
 import { paymentForm } from "./PaymentFormObject";
 
 export default function Payment() {
+  const { order } = useContext(OrderContext)
+
   return (
     <main className="grid h-[90vh] items-center md:grid-cols-2 ">
       <section className="py-12 px-6 gap-5 md:px-10 ">
         <h2 className="text-2xl font-extrabold my-2 pl-14 bg-icon-wallet bg-contain bg-no-repeat">Pagamento</h2>
         <div className="my-10">
           <span className="block font-extrabold my-2">Resumo da compra</span>
-          <OrderTicket />
+          <OrderTicketModal
+            product={order.product}
+            counter={order.quantity}
+            price={order.price}
+            observation={order.observation}
+          />
         </div>
         <div className="flex flex-wrap gap-5 my-4">
           <div className="flex flex-col items-start">
