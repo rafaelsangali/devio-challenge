@@ -13,7 +13,6 @@ export default function OrderModal() {
     counter,
     observation,
     setObservation,
-    order,
     product,
     closeAndResetModal,
     addOrder

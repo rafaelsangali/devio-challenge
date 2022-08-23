@@ -4,7 +4,6 @@ export interface IOrderContext {
   modalOpen: boolean
   setModalOpen: Dispatch<SetStateAction<boolean>>
   product: any
-  setProduct: any
   price: number
   setPrice: Dispatch<SetStateAction<number>>
   counter: number,

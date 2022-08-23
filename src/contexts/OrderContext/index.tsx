@@ -38,7 +38,6 @@ export function OrderProvider({ children }: IOrderProvider) {
       modalOpen,
       setModalOpen,
       product,
-      setProduct,
       price,
       setPrice,
       counter,
