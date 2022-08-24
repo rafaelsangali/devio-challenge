@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import OrderTicketModal from "../../components/OrderTicketModal";
 import { OrderContext } from "../../contexts/OrderContext";
-import useFecth from "../../hooks/useFecth";
+import useFetch from "../../hooks/useFetch";
 import { paymentForm } from "./PaymentFormObject";
 
 export default function Payment() {
   const { insertData, handleInput } = useContext(OrderContext)
-  const { orderList } = useFecth()
+  const { orderList } = useFetch()
 
   return (
     <main className="grid h-[90vh] items-center md:grid-cols-2 ">
@@ -67,7 +67,7 @@ export default function Payment() {
           >
             Valor Entregue
             <input className="bg-gray-200 font-normal text-center max-w-[120px] py-1 px-3 rounded-md"
-              type="text"
+              type="number"
               name="exchange"
               id="exchange"
             />
@@ -80,7 +80,7 @@ export default function Payment() {
               name="result"
               id="result"
               disabled
-              value={"1203"}
+              value={""}
             />
           </label>
         </div>

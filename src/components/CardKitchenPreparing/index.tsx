@@ -1,4 +1,6 @@
+import { useContext } from "react"
 import { images } from "../../assets"
+import { KitchenContext } from "../../contexts/KitchenContext"
 
 interface ICardPreparing {
   id: number
@@ -6,6 +8,8 @@ interface ICardPreparing {
   observation: string | null
 }
 export default function CardKitchenPreparing({ id, name, observation }: ICardPreparing) {
+  const { orderListDone, setOrderListDone } = useContext(KitchenContext)
+
   return (
     <div className="p-3 max-w-sm flex flex-wrap flex-col gap-4 shadow-lg rounded-lg">
       <div className="flex items-center justify-evenly gap-5">
@@ -20,7 +24,9 @@ export default function CardKitchenPreparing({ id, name, observation }: ICardPre
         </div>
         <div>
           <button className="p-4 m-1 bg-red-300 bg-icon-x bg-cover bg-no-repeat rounded-lg hover:bg-red-400 transition-colors" />
-          <button className="p-4 m-1 bg-green-300 bg-icon-check bg-cover bg-no-repeat rounded-lg hover:bg-green-400 transition-colors" />
+          <button className="p-4 m-1 bg-green-300 bg-icon-check bg-cover bg-no-repeat rounded-lg hover:bg-green-400 transition-colors"
+            onClick={() => setOrderListDone([...orderListDone, { id: id, clientName: name }])}
+          />
         </div>
       </div>
       {observation ? (

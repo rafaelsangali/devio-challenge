@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import CardKitchenDone from "../../components/CardKitchenDone";
 import CardKitchenPreparing from "../../components/CardKitchenPreparing";
-import useFecth from "../../hooks/useFecth";
+import { Loading } from "../../components/Loading";
+import { KitchenContext } from "../../contexts/KitchenContext";
+import useFetch from "../../hooks/useFetch";
 
 export default function Kitchen() {
-  const { orderList } = useFecth()
+  const { orderList } = useFetch()
+  const { orderListDone } = useContext(KitchenContext)
 
   return (
     <main className="grid grid-row-2 md:grid-cols-2">
@@ -17,11 +21,19 @@ export default function Kitchen() {
               name={order.clientName}
               observation={order.observation}
             />
-          )) : <p>Ocorreu algo de errado</p>}
+          )) : <Loading />}
       </section>
       <section className="py-8 px-8 md:px-16">
         <h4 className="my-4 text-2xl font-extrabold">Pronto:</h4>
-        <CardKitchenDone />
+        {orderListDone ?
+          orderListDone.map((order: { clientName: string; id: number; }, index: any) => (
+            order.clientName ?
+              <CardKitchenDone
+                key={order.clientName + index}
+                id={order.id}
+                name={order.clientName}
+              /> : ""
+          )) : ""}
       </section>
     </main>
   )
