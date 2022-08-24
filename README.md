@@ -20,6 +20,15 @@ E para isso utilizei as seguintes ferramentas :
 * [React Router Dom](https://reactrouter.com/en/v6.3.0) - Biblioteca para fazer o roteamento das páginas da sua aplicação de forma dinâmica.
 * [Supabase](https://supabase.com/) - Ferramenta que inclui um banco de dados e outros serviços, facilitando a otimização do back-end.
 
+
+##### Arquitetura do projeto 🏗 : 
+
+  
+
+
+
+
+</br>
 </br>
 
 #### Mãos a obra 👷‍ : 
@@ -38,6 +47,8 @@ E para isso utilizei as seguintes ferramentas :
 * ❌ O usuário poderá atribuir múltiplas formas de pagamento na finalização do pedido.
 * ✅ Os pedidos baixados devem aparecer em uma tela com o nome do cliente, apitando para ser feito a retirada.
 
+</br>
+
 #### Fluxo da Funcionalidade 🌀 :
 ```
  Usuário podera pesquisar seu pedido (pedido único) >> 
@@ -50,7 +61,7 @@ E para isso utilizei as seguintes ferramentas :
             
                 pedido ira para um banco de dados >> Cozinha irá receber em tempo real seu pedido >> 
                 
-                    Cozinha podera dar baixo em seu pedido (Podendo ser visualizado na página de "Retirada")
+                    Cozinha podera dar baixa em seu pedido (Podendo ser visualizado na página de "Retirada")
 ```
 
 #### Observações 🧐 :
@@ -78,4 +89,4 @@ Tenho a compreensão de que o projeto não está rodando perfeitamente, existem 
 
 * Estou muito grato não só a finalização, mas também a todo aprendizado obtido 🤓
 * Obrigado publicamente 💙
-* etc.
+
