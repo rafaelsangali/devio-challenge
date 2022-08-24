@@ -1,14 +1,20 @@
+import { useContext } from "react"
+import { OrderContext } from "../../contexts/OrderContext"
+
 interface ICardProduct {
   src: string
   title: string
   description: string
-  price: string
+  price: number
 }
 
 export default function CardProduct({ src, title, description, price }: ICardProduct) {
+  const { saveProductInfo } = useContext(OrderContext)
+
   return (
     <article className="bg-green-500 w-44 h-60 m-2 relative flex flex-col items-center text-center justify-center  rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-transform cursor-pointer"
       tabIndex={0}
+      onClick={() => saveProductInfo(title, price)}
     >
       <div className="z-20">
         <img className="my-1"
@@ -18,7 +24,7 @@ export default function CardProduct({ src, title, description, price }: ICardPro
         />
         <h3 className="my-1 font-extrabold">{title}</h3>
         <p className="text-xs">{description}</p>
-        <p className="mt-6 font-extrabold">{price}</p>
+        <p className="mt-6 font-extrabold">{`R$ ${price.toFixed(2)}`}</p>
       </div>
       <span className="bg-white absolute bottom-0 w-44 h-40 rounded-lg"></span>
     </article>
