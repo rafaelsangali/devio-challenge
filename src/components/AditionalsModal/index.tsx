@@ -6,9 +6,9 @@ interface IAditionalsModal {
   img: string
 }
 export default function AditionalsModal({ text, img }: IAditionalsModal) {
-  const { price, setPrice } = useContext(OrderContext)
+  const { order, setOrder } = useContext(OrderContext)
   const handleClick = (e: any) => {
-    e.checked == true ? setPrice(price + 1) : setPrice(price - 1)
+    e.checked == true ? setOrder({ ...order, price: order.price + 1 }) : setOrder({ ...order, price: order.price - 1 })
   }
 
   return (

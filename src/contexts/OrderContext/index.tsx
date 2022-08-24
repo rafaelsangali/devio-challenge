@@ -1,54 +1,44 @@
 import { createContext, useState } from "react";
-import { IOrder, IOrderContext, IOrderProvider, IProduct } from "./types";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../../libs/supabase";
+import { IOrder, IOrderContext, IOrderProvider } from "./types";
 
 export const OrderContext = createContext({} as IOrderContext)
 
 export function OrderProvider({ children }: IOrderProvider) {
   const [modalOpen, setModalOpen] = useState(false)
-  const [product, setProduct] = useState({} as IProduct)
-  const [price, setPrice] = useState(0)
-  const [counter, setCounter] = useState(1)
-  const [observation, setObservation] = useState('')
+  const [code, setCode] = useState(1)
   const [order, setOrder] = useState({} as IOrder)
+  const navigate = useNavigate()
 
-  const closeAndResetModal = () => {
-    setModalOpen(!modalOpen)
-    setObservation('')
-    setCounter(1)
+  const handleInput = (e: any) => {
+    const name = e.target.name
+    const value = e.target.value
+    setOrder({ ...order, [name]: value })
   }
 
-  const addOrder = () => {
-    setOrder({
-      quantity: counter,
-      product: product.title,
-      observation: observation,
-      price: price
-    })
-    closeAndResetModal()
+  const saveProductInfo = (title: string, price: number) => {
+    setModalOpen(!modalOpen)
+    setOrder({ ...order, product: title, price: price, quantity: 1 })
   }
 
-  const productInfo = (infoProduct: IProduct) => {
-    setModalOpen(!modalOpen)
-    setPrice(infoProduct.price)
-    setProduct(infoProduct)
+  const insertData = async () => {
+    const { status } = await supabase.from("order").insert(order);
+    navigate("/kitchen")
+    return status
   }
 
   return (
     <OrderContext.Provider value={{
       modalOpen,
       setModalOpen,
-      product,
-      price,
-      setPrice,
-      counter,
-      setCounter,
-      observation,
-      setObservation,
       order,
       setOrder,
-      closeAndResetModal,
-      addOrder,
-      productInfo,
+      saveProductInfo,
+      code,
+      setCode,
+      insertData,
+      handleInput
     }}>
       {children}
     </OrderContext.Provider>

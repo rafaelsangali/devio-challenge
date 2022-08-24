@@ -3,18 +3,13 @@ import { Dispatch, SetStateAction } from "react";
 export interface IOrderContext {
   modalOpen: boolean
   setModalOpen: Dispatch<SetStateAction<boolean>>
-  product: any
-  price: number
-  setPrice: Dispatch<SetStateAction<number>>
-  counter: number,
-  setCounter: Dispatch<SetStateAction<number>>,
-  observation:string,
-  setObservation: Dispatch<SetStateAction<string>>,
   order: IOrder,
   setOrder: Dispatch<SetStateAction<IOrder>>,
-  closeAndResetModal: () => void,
-  addOrder: () => void,
-  productInfo: (infoProduct: IProduct) => void
+  saveProductInfo: (title: string, price: number) => void,
+  code: number,
+  setCode: Dispatch<SetStateAction<number>>,
+  insertData: () => Promise<number>,
+  handleInput: (e: any) => void
 }
 
 export interface IOrder {
@@ -22,12 +17,8 @@ export interface IOrder {
   product: string,
   observation: string,
   price: number,
-}
-
-export interface IProduct {
-  title: string
-  description:string
-  price: number
+  clientName: string,
+  code: number,
 }
 
 export interface IOrderProvider {
