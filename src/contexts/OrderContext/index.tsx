@@ -19,8 +19,6 @@ export function OrderProvider({ children }: IOrderProvider) {
   const saveProductInfo = (title: string, price: number) => {
     setModalOpen(!modalOpen)
     setOrder({ ...order, product: title, price: price, quantity: 1 })
-    console.log(order);
-
   }
 
   const insertData = async () => {
