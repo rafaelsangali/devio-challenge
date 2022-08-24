@@ -70,6 +70,7 @@ export default function Payment() {
               type="number"
               name="exchange"
               id="exchange"
+              disabled
             />
           </label>
           <label className="font-extrabold grid"
