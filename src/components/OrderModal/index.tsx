@@ -9,13 +9,9 @@ import { aditionals } from "./adtionalObject";
 export default function OrderModal() {
   const {
     modalOpen,
-    price,
-    counter,
-    observation,
-    setObservation,
-    product,
-    closeAndResetModal,
-    addOrder
+    setModalOpen,
+    order,
+    handleInput,
   } = useContext(OrderContext)
 
   return (
@@ -23,13 +19,13 @@ export default function OrderModal() {
       <div className="bg-white p-5 rounded w-3/4 h-min relative">
         <span className="text-xl font-extrabold">Revise seu Pedido!</span>
         <button className="w-5 h-5 bg-contain absolute top-5 right-4 bg-icon-close"
-          onClick={closeAndResetModal}
+          onClick={() => setModalOpen(!modalOpen)}
         />
         {/* section containing card and counter */}
         <section className="flex flex-wrap items-center justify-center md:justify-evenly">
           <CardProductModal />
           <DescriptionAndCounter />
-          <span className="font-extrabold m-4 w-20">{`R$ ${(price * counter).toFixed(2)}`}</span>
+          <span className="font-extrabold m-4 w-20">{`R$ ${(order.price * order.quantity).toFixed(2)}`}</span>
         </section>
         {/* Section containing additional products */}
         <section className="my-10">
@@ -56,25 +52,21 @@ export default function OrderModal() {
             cols={30}
             rows={5}
             placeholder="Adicione uma observação ao seu pedido"
-            value={observation}
-            onChange={(e) => setObservation(e.target.value)}
+            value={order.observation}
+            onChange={(e) => handleInput(e)}
           />
         </section>
-        <OrderTicketModal
-          counter={counter}
-          product={product.title}
-          price={price}
-        />
+        <OrderTicketModal />
         <div className="my-5 flex flex-wrap justify-evenly">
           <input className="w-48 h-7 my-2 border border-solid border-primary text-primary rounded-lg cursor-pointer hover:scale-105 transition-transform"
             type="button"
             value="Continuar Adicionando"
-            onClick={closeAndResetModal}
+            onClick={() => setModalOpen(!open)}
           />
           <input className="w-48 h-7 my-2 bg-primary text-white rounded-lg cursor-pointer hover:scale-105 transition-transform"
             type="button"
             value="Adicionar ao pedido"
-            onClick={addOrder}
+            onClick={() => setModalOpen(!open)}
           />
         </div>
       </div>

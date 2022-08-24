@@ -56,10 +56,6 @@ export default function Home() {
       </section>
       {order.product != undefined ?
         <OrderTicketModal
-          counter={order.quantity}
-          product={order.product}
-          price={order.price}
-          observation={order.observation}
         /> : ""}
       <div className="flex flex-wrap justify-center md:justify-end my-20">
         <button className="w-52 h-10 m-4 border-2 border-solid border-gray-400 rounded-xl text-gray-400 font-extrabold hover:scale-105 hover:shadow-lg transition-transform"

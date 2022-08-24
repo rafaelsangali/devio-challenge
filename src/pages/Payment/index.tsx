@@ -5,7 +5,7 @@ import { OrderContext } from "../../contexts/OrderContext";
 import { paymentForm } from "./PaymentFormObject";
 
 export default function Payment() {
-  const { order } = useContext(OrderContext)
+  const { order, insertData, code, handleInput } = useContext(OrderContext)
 
   return (
     <main className="grid h-[90vh] items-center md:grid-cols-2 ">
@@ -13,12 +13,7 @@ export default function Payment() {
         <h2 className="text-2xl font-extrabold my-2 pl-14 bg-icon-wallet bg-contain bg-no-repeat">Pagamento</h2>
         <div className="my-10">
           <span className="block font-extrabold my-2">Resumo da compra</span>
-          <OrderTicketModal
-            product={order.product}
-            counter={order.quantity}
-            price={order.price}
-            observation={order.observation}
-          />
+          <OrderTicketModal />
         </div>
         <div className="flex flex-wrap gap-5 my-4">
           <div className="flex flex-col items-start">
@@ -29,9 +24,11 @@ export default function Payment() {
             </label>
             <input className="bg-gray-200  py-1 px-3 rounded-md"
               type="text"
-              name="client-name"
-              id="client-name"
+              name="clientName"
+              id="clientName"
               placeholder="Primeiro Nome"
+              value={order.clientName}
+              onChange={(e) => handleInput(e)}
             />
           </div>
           <div className="flex flex-col items-start">
@@ -44,7 +41,7 @@ export default function Payment() {
               type="text"
               name="client-code"
               id="client-code"
-              value={1}
+              value={code}
               disabled
             />
           </div>
@@ -93,10 +90,13 @@ export default function Payment() {
           >
             Cancelar
           </Link>
-          <input className="w-48 h-10 my-2 mx-1 bg-primary text-white rounded-lg cursor-pointer hover:scale-105 transition-transform"
+          <Link className="w-48 h-10 my-2 mx-1 flex items-center justify-center bg-primary text-white rounded-lg cursor-pointer hover:scale-105 transition-transform"
             type="button"
-            value="Finalizar pedido"
-          />
+            to={"/payment"}
+            onClick={() => insertData()}
+          >
+            Finalizar Pedido
+          </Link>
         </div>
       </section>
     </main >
