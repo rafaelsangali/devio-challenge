@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../../libs/supabase";
 import { IOrder, IOrderContext, IOrderProvider } from "./types";
 
@@ -8,6 +9,7 @@ export function OrderProvider({ children }: IOrderProvider) {
   const [modalOpen, setModalOpen] = useState(false)
   const [code, setCode] = useState(1)
   const [order, setOrder] = useState({} as IOrder)
+  const navigate = useNavigate()
 
   const handleInput = (e: any) => {
     const name = e.target.name
@@ -22,7 +24,7 @@ export function OrderProvider({ children }: IOrderProvider) {
 
   const insertData = async () => {
     const { status } = await supabase.from("order").insert(order);
-    console.log(status);
+    navigate("/kitchen")
     return status
   }
 

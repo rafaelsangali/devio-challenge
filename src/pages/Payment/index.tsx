@@ -5,7 +5,7 @@ import { OrderContext } from "../../contexts/OrderContext";
 import { paymentForm } from "./PaymentFormObject";
 
 export default function Payment() {
-  const { order, insertData, code, handleInput } = useContext(OrderContext)
+  const { insertData, handleInput } = useContext(OrderContext)
 
   return (
     <main className="grid h-[90vh] items-center md:grid-cols-2 ">
@@ -27,7 +27,6 @@ export default function Payment() {
               name="clientName"
               id="clientName"
               placeholder="Primeiro Nome"
-              value={order.clientName}
               onChange={(e) => handleInput(e)}
             />
           </div>
@@ -41,7 +40,7 @@ export default function Payment() {
               type="text"
               name="client-code"
               id="client-code"
-              value={code}
+              value={1}
               disabled
             />
           </div>
@@ -90,13 +89,11 @@ export default function Payment() {
           >
             Cancelar
           </Link>
-          <Link className="w-48 h-10 my-2 mx-1 flex items-center justify-center bg-primary text-white rounded-lg cursor-pointer hover:scale-105 transition-transform"
+          <input className="w-48 h-10 my-2 mx-1 bg-primary text-white rounded-lg cursor-pointer hover:scale-105 transition-transform"
             type="button"
-            to={"/payment"}
+            value="Finalizar pedido"
             onClick={() => insertData()}
-          >
-            Finalizar Pedido
-          </Link>
+          />
         </div>
       </section>
     </main >

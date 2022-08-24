@@ -3,8 +3,6 @@ import { OrderContext } from "../../contexts/OrderContext";
 
 export default function OrderTicketModal() {
   const { order } = useContext(OrderContext)
-  console.log(order);
-
 
   return (
     <div className="px-10 py-5 border border-solid border-gray-300 rounded-md">
