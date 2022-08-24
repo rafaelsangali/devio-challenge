@@ -18,7 +18,7 @@ export default function Header() {
         <button
           className={`w-4 h-4 bg-contain absolute top-3 right-3 sm:hidden ${open ? "bg-icon-menu" : "bg-icon-close"}`}
           onClick={() => setOpen(!open)} />
-        <div className={`flex flex-col content-around flex-1 sm:hidden bg-primary bg-opacity-90 rounded-bl-xl fixed w-4/5 top-10  py-20 duration-500 z-50 ${open ? "right-[-100%]" : "right-0"
+        <div className={`flex flex-col content-around flex-1 sm:hidden bg-primary bg-opacity-90 rounded-bl-xl absolute w-4/5 top-10  py-20 duration-500 z-50 ${open ? "right-[-100%]" : "right-0"
           }`}>
           {navigation.map((link) => (
             <Link key={link.name}
