@@ -26,18 +26,17 @@ E para isso utilizei as seguintes ferramentas :
 
 </br>
 
-<div style="display:flex; font-size: 15px">
-</br>
-  <img src="src/assets/images/imageReadme.png" />
+<div>
+  <img align="left" src="src/assets/images/imageReadme.png" />
     <ul>
       <li>./src -  Contém todos arquivos do projeto</li>
       <li>./src/assets -  Contém todas imagens, sendo exportadas por um único arquivo</li>
-    <li>./src/components -  Contém todos components</li>
-    <li>./src/context -  Onde está toda a lógica da aplicação</li>
-    <li>./src/libs -  Contém arquivo de configuração das libs (Supabase)</li>
-    <li>./src/pages -  Onde contém a construção da páginas utilizando os components</li>
-    <li>./src/styles -  Configurações globais de estilização</li>
-    <li>./src/Routes.tsx -  Configurações das rotas e contexts</li>
+      <li>./src/components -  Contém todos components</li>
+      <li>./src/context -  Onde está toda a lógica da aplicação</li>
+      <li>./src/libs -  Contém arquivo de configuração das libs (Supabase)</li>
+      <li>./src/pages -  Onde contém a construção da páginas utilizando os components</li>
+      <li>./src/styles -  Configurações globais de estilização</li>
+      <li>./src/Routes.tsx -  Configurações das rotas e contexts</li>
     </ul>
 </div>
   
