@@ -6,8 +6,6 @@ export interface IOrderContext {
   order: IOrder,
   setOrder: Dispatch<SetStateAction<IOrder>>,
   saveProductInfo: (title: string, price: number) => void,
-  code: number,
-  setCode: Dispatch<SetStateAction<number>>,
   insertData: () => Promise<number>,
   handleInput: (e: any) => void
 }
@@ -18,7 +16,6 @@ export interface IOrder {
   observation: string,
   price: number,
   clientName: string,
-  code: number,
 }
 
 export interface IOrderProvider {

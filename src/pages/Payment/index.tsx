@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import OrderTicketModal from "../../components/OrderTicketModal";
 import { OrderContext } from "../../contexts/OrderContext";
+import useFecth from "../../hooks/useFecth";
 import { paymentForm } from "./PaymentFormObject";
 
 export default function Payment() {
   const { insertData, handleInput } = useContext(OrderContext)
+  const { orderList } = useFecth()
 
   return (
     <main className="grid h-[90vh] items-center md:grid-cols-2 ">
@@ -32,15 +34,15 @@ export default function Payment() {
           </div>
           <div className="flex flex-col items-start">
             <label className="font-extrabold"
-              htmlFor="client-code"
+              htmlFor="clientCode"
             >
               Código
             </label>
-            <input className="bg-gray-200 text-center w-10 py-1 px-3 rounded-md"
+            <input className="bg-gray-200 text-center w-10 py-1 rounded-md"
               type="text"
-              name="client-code"
-              id="client-code"
-              value={1}
+              name="clientCode"
+              id="clientCode"
+              value={orderList ? orderList[orderList.length - 1].id + 1 : 1}
               disabled
             />
           </div>

@@ -7,7 +7,6 @@ export const OrderContext = createContext({} as IOrderContext)
 
 export function OrderProvider({ children }: IOrderProvider) {
   const [modalOpen, setModalOpen] = useState(false)
-  const [code, setCode] = useState(1)
   const [order, setOrder] = useState({} as IOrder)
   const navigate = useNavigate()
 
@@ -35,8 +34,6 @@ export function OrderProvider({ children }: IOrderProvider) {
       order,
       setOrder,
       saveProductInfo,
-      code,
-      setCode,
       insertData,
       handleInput
     }}>
